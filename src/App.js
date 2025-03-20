@@ -1,13 +1,25 @@
 // src/App.js
 import React from 'react';
 import './App.css';  // Import the CSS file for styling
+import './LandingPage';
+
 
 function App() {
   return (
-    <div className="App">
-      <h1>Welcome to My Simple React Page!</h1>
-      <p>This is a basic paragraph displayed on the page.</p>
+    // main container
+    <div className='app-container'> 
+    {/* all the content will go here */}
+    <div className='content'> 
+  {/* landing */}
+      <div className='landingWelcome'>
+      <h1>Welcome to the nursery</h1>
+      <button className="start">
+            Start!
+      </button>
+      </div> 
     </div>
+    </div>
+
   );
 }
 
