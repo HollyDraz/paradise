@@ -1,26 +1,40 @@
 // src/App.js
+import { BrowserRouter as Router, Route, Routes, useNavigate } from 'react-router-dom';
 import React from 'react';
-import './App.css';  // Import the CSS file for styling
-import './LandingPage';
+//styling
+import './App.css';  
+// import components
+import LandingPage from './LandingPage';
 
+
+function Home() {
+  const navigate = useNavigate();
+
+  return (
+    <div className='app-container'>
+      <div className='content'>
+        <div className='landingWelcome'>
+          <h1>Welcome to the nursery</h1>
+          <button className="start" onClick={() => navigate('/landing')}>
+            Start!
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 function App() {
   return (
-    // main container
-    <div className='app-container'> 
-    {/* all the content will go here */}
-    <div className='content'> 
-  {/* landing */}
-      <div className='landingWelcome'>
-      <h1>Welcome to the nursery</h1>
-      <button className="start">
-            Start!
-      </button>
-      </div> 
-    </div>
-    </div>
-
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/landing" element={<LandingPage />} />
+      </Routes>
+    </Router>
   );
 }
+
+
 
 export default App;
