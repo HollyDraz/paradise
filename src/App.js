@@ -1,9 +1,10 @@
-// src/App.js
+// imports
 import { BrowserRouter as Router, Route, Routes, useNavigate } from 'react-router-dom';
 import React from 'react';
 //styling
 import './App.css';  
 // import components
+import ProductList from './ProductList';
 import LandingPage from './LandingPage';
 
 
@@ -30,6 +31,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/landing" element={<LandingPage />} />
+        <Route path="/products" element={<ProductList />} />
       </Routes>
     </Router>
   );
