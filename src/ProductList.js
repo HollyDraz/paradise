@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
+import { BrowserRouter as Router, Route, Routes, useNavigate } from 'react-router-dom';
 import Cart from './Cart'; // Import Cart component
+import './ProductList.css'; // Import the CSS file for styling
 
 const products = [
   { id: 1, name: "Aloe Vera", description: "Healing plant." },
@@ -7,6 +9,7 @@ const products = [
 ];
 
 function ProductList() {
+  const navigate = useNavigate();
   const [cart, setCart] = useState([]);
 
   // Function to add item to cart
@@ -20,18 +23,21 @@ function ProductList() {
   };
 
   return (
-    <div className="product-list">
-      <h1>Product List</h1>
+    <div className='product-list-container'>
+      <button className="start-btn" onClick={() => navigate('/landing')}>
+        Return
+      </button>
+      <h1 className="title">Product List</h1>
       <div className="product-container">
         {products.map((plant) => (
           <div key={plant.id} className="product-card">
             <h2>{plant.name}</h2>
             <p>{plant.description}</p>
-            <button onClick={() => addToCart(plant)}>Add to Cart</button>
+            <button className="add-btn" onClick={() => addToCart(plant)}>Add to Cart</button>
           </div>
         ))}
       </div>
-
+      
       {/* Pass the cart state and removeFromCart function to Cart component */}
       <Cart cart={cart} removeFromCart={removeFromCart} />
     </div>
